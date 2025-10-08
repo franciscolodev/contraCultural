@@ -23,7 +23,7 @@ export default defineConfig({
   },
   i18n: {
     locales: siteConfig.langs,
-    defaultLocale: "zh",
+    defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false
     },
@@ -35,8 +35,8 @@ export default defineConfig({
     plugins: [
       svgr({
         svgrOptions: {
-          icon: true
-        }
+        icon: true
+      }
       }),
       tailwindcss(),
       visualizer({
@@ -105,11 +105,11 @@ export default defineConfig({
     "/blog/posts": "/blog/posts/1"
   },
   markdown: {
-    // 阅读时间
+    // (Tiempo de lectura)
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [
       [
-        // 链接添加图标
+        // (Agregar icono a los enlaces)
         rehypeExternalLinks,
         {
           content: { type: 'text', value: ' 🔗' }
