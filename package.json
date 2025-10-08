@@ -1,8 +1,8 @@
 {
-  "name": "DesignPhotographyPortfolio",
+  "name": "contracultural",
   "type": "module",
   "version": "0.0.1",
-	"description": "About Design/Photography Portfolio is a free Astro template for showcasing Design/Photography artists.",
+  "description": "About contracultural is a Astro template for showcasing Design/Photography artists.",
   "scripts": {
     "dev": "astro dev",
     "dev:debug": "node --inspect-brk node_modules/.bin/astro dev",
@@ -13,15 +13,15 @@
     "auto-deploy-website": "npm run build && python scripts/auto-deploy-website.py"
   },
   "keywords": [
-		"astro",
-		"astro theme",
-		"react",
-		"heroui",
-		"tailwindcss"
+    "astro",
+    "astro theme",
+    "react",
+    "heroui",
+    "tailwindcss"
   ],
   "author": {
-    "name": "草木一秋",
-    "email": "chinaitlearner@gmail.com"
+    "name": "franciscolodev",
+    "email": "franciscolodev@gmail.com"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.8",
@@ -44,7 +44,6 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "alpinejs": "^3.14.9",
-    "astro": "^5.9.4",
     "astro-i18n": "^2.2.4",
     "astro-icon": "^1.1.5",
     "astro-seo": "^0.8.4",
@@ -76,6 +75,7 @@
     "@iconify/json": "^2.2.373",
     "@iconify/tailwind4": "^1.0.6",
     "@tailwindcss/typography": "^0.5.16",
+    "astro": "^5.14.1",
     "chokidar": "^4.0.3",
     "fs-extra": "^11.3.0",
     "inquirer": "^12.9.0",
