@@ -8,14 +8,17 @@ import { getMenus } from '@/config/menus';
 
 const { currentLocale } = Astro
 const i18n = await getI18n(currentLocale, 'design')
-const links = getMenus(i18n('menus'), currentLocale);
+const links = getMenus(i18n('menus') ?? currentLocale, 'someFallbackString');
+
+
+
 ---
 
 <BaseLayout {...Astro.props} >
-  <Header />
+<Header />
 	<div class="p-2 sm:p-4 xl:p-8 relative min-h-1/2 mx-auto flex flex-col" transition:animate={slide({ duration: "0.4s" })}>
 		<slot />
 	</div>
-  <Footer shows={i18n('footer')} links={links}/>
+<Footer shows={i18n('footer')} links={links}/>
 </BaseLayout>
 

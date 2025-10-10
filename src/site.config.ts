@@ -1,12 +1,12 @@
 export const siteConfig = {
-title: "laChispaCultural",
-	author: "laChispaCultural",
-	description: "Historia y Cultura marxista revolucionaria",
-	email: "it17621000@163.com",
-	lang: "es",
-	site: 'https://howduudu.tech',
-	themes: { dark: 'business', light: 'silk' },
-	langs: ['es', 'en', 'pt'],
+title: "contraCultural",
+author: "contraCultural",
+description: "Diseño para galería de arte y cultura",
+email: "XXXXX@X1337.dev",
+lang: "es",
+  site: "https://franciscolodev.com", // 🌐 el link que usará el footer
+themes: { dark: "business", light: "silk" },
+langs: ["es", "en", "pt"],
 };
 
 export default siteConfig;

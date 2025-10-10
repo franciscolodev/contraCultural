@@ -8,17 +8,21 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { siteConfig } from '@/site.config';
 
 const { currentLocale } = Astro
-const i18n = await getI18n(currentLocale, 'design')
+const locale = currentLocale ?? 'en'; // fallback to 'en' or your default locale
+const i18n = await getI18n(locale, 'design')
 
 const mates = {
   title: i18n('menus.works'),
-	description: i18n('mate.description'),
-	author: siteConfig.author,
-	email: siteConfig.email,
-	local: currentLocale,
-	ogImage: getRelativeLocaleUrl(currentLocale, '/og-image/site-image.png'),
+  description: i18n('mate.description'),
+  author: siteConfig.author,
+  email: siteConfig.email,
+  local: locale,
+  ogImage: getRelativeLocaleUrl(locale, '/og-image/site-image.png'),
 }
-const works = await getWorks()
+// Ensure getWorks returns an array of works with the correct structure
+const worksRaw = await getWorks();
+const works = (Array.isArray(worksRaw) ? worksRaw : [worksRaw])
+  .filter(item => item.collection === "works" && item.data && typeof item.data.base === "string");
 ---
 
 <Layout {...mates}>

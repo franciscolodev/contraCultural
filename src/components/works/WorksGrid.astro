@@ -2,8 +2,18 @@
 import type { CollectionEntry } from "astro:content";
 import Image from '@/components/common/Image';
 
+type WorkData = {
+  base: string;
+  members: {
+    main: [number, number];
+    [key: string]: any;
+  };
+  desc?: string;
+  [key: string]: any;
+};
+
 type Props = {
-  works: CollectionEntry<"works">[];
+  works: Array<CollectionEntry<"works"> & { data: WorkData }>;
 };
 
 const { works } = Astro.props;

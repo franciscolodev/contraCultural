@@ -12,7 +12,6 @@ import { siteConfig } from "./src/site.config";
 import webmanifest from "astro-webmanifest";
 
 import vtbot from 'astro-vtbot';
-
 import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
@@ -23,20 +22,20 @@ export default defineConfig({
   },
   i18n: {
     locales: siteConfig.langs,
-    defaultLocale: "en",
+    defaultLocale: "pt", // ✅ corregido
     routing: {
       prefixDefaultLocale: false
     },
   },
   vite: {
     optimizeDeps: {
-            exclude: ["@resvg/resvg-js"],
-        },
+      exclude: ["@resvg/resvg-js"],
+    },
     plugins: [
       svgr({
         svgrOptions: {
-        icon: true
-      }
+          icon: true
+        }
       }),
       tailwindcss(),
       visualizer({
@@ -96,7 +95,8 @@ export default defineConfig({
       theme_color: '#fdfaf6',
       background_color: '#fdfaf6',
       display: 'standalone',
-    }), alpinejs()
+    }),
+    alpinejs()
   ],
   redirects: {
     "/blog": "/blog/home",
@@ -105,11 +105,11 @@ export default defineConfig({
     "/blog/posts": "/blog/posts/1"
   },
   markdown: {
-    // (Tiempo de lectura)
+    // Tiempo de lectura
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [
       [
-        // (Agregar icono a los enlaces)
+        // Enlaces externos
         rehypeExternalLinks,
         {
           content: { type: 'text', value: ' 🔗' }
@@ -120,17 +120,17 @@ export default defineConfig({
 });
 
 function rawFonts(ext) {
-    return {
-        name: "vite-plugin-raw-fonts",
-        // @ts-expect-error:next-line
-        transform(_, id) {
-            if (ext.some((e) => id.endsWith(e))) {
-                const buffer = fs.readFileSync(id);
-                return {
-                    code: `export default ${JSON.stringify(buffer)}`,
-                    map: null,
-                };
-            }
-        },
-    };
+  return {
+    name: "vite-plugin-raw-fonts",
+    // @ts-expect-error:next-line
+    transform(_, id) {
+      if (ext.some((e) => id.endsWith(e))) {
+        const buffer = fs.readFileSync(id);
+        return {
+          code: `export default ${JSON.stringify(buffer)}`,
+          map: null,
+        };
+      }
+    },
+  };
 }

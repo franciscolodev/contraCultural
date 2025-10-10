@@ -1,14 +1,18 @@
 ---
-const { currentLocale } = Astro
-const lang = {
-  'es': 'es',
-  'en': 'en',
-}[currentLocale] || currentLocale;
+const { currentLocale } = Astro;
+
+const locale = currentLocale ?? 'en'; // valor por defecto
+const langMap: Record<string, string> = {
+  es: 'es',
+  en: 'en',
+};
+
+const lang = langMap[locale] || locale;
 ---
 <script
   src="https://giscus.app/client.js"
-  data-repo="rnetao/howduudu.tech"
-  data-repo-id="R_kgDOPKloKg"
+  data-repo="franciscolodev/contracult"
+  data-repo-id="XXXXXXXXXXXXXX"
   data-category="Blog Post Comments"
   data-category-id="DIC_kwDOPKloKs4CszS2"
   data-mapping="url"

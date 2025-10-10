@@ -1,32 +1,47 @@
 ---
 import Giscus from '@/components/common/Giscus.astro';
 import Layout from '@/layouts/PageLayout.astro';
-import { getEntry, render } from "astro:content";
-
-import { getI18n } from "@/i18n/index"
+import { getEntry, render } from 'astro:content';
+import { getI18n } from '@/i18n/index';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { siteConfig } from '@/site.config';
 
-const { currentLocale } = Astro
-const i18n = await getI18n(currentLocale, 'design')
+// ✅ Asegura que siempre haya un locale válido
+const { currentLocale } = Astro;
+const locale = currentLocale ?? 'es';
 
-const mates = {
+// ✅ Inicializa i18n
+const i18n = await getI18n(locale, 'design');
+
+// ✅ Define los metadatos de la página
+const meta = {
   title: i18n('menus.about'),
-	description: i18n('mate.description'),
-	author: siteConfig.author,
-	email: siteConfig.email,
-	local: currentLocale,
-	ogImage: getRelativeLocaleUrl(currentLocale, '/og-image/site-image.png'),
-}
-const about = await getEntry("pages", ["about", currentLocale].join('_'));
+  description: i18n('mate.description'),
+  author: siteConfig.author,
+  email: siteConfig.email,
+  local: locale,
+  ogImage: getRelativeLocaleUrl(locale, '/og-image/site-image.png'),
+};
 
-const { Content } = await render(about);
+// ✅ Obtiene la entrada del contenido según el idioma, con fallback
+let about = await getEntry('pages', `about_${locale}`);
+if (!about) {
+  about = await getEntry('pages', 'about_es'); // fallback a español si no existe el locale actual
+}
+
+// ✅ Renderiza el contenido solo si se encontró la entrada
+let Content;
+if (about) {
+  const rendered = await render(about);
+  Content = rendered.Content;
+} else {
+  console.warn(`⚠️ No se encontró la entrada "about_${locale}" ni "about_es".`);
+}
 ---
 
-<Layout {...mates}>
+<Layout {...meta}>
   <div class="prose prose-tao dark:prose-invert mx-auto w-[90%] md:w-[80%] xl:w-[70%] pt-20">
-    <Content />
+    {Content ? <Content /> : <p>No se encontró contenido para esta página.</p>}
     <Giscus />
   </div>
 </Layout>
-

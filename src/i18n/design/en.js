@@ -7,16 +7,16 @@ export default {
     backToTop: 'Back to Top'
   },
   page_works: {
-    title: '{{name}} - Portfolio',
+    title: '{{name}} - Works',
   },
   footer: {
     cr: 'All rights reserved.',
-    icp: 'ICP No. 2022020686 (Shanghai)',
+    icp: '(Río Cuarto, Córdoba, Argentina) ',
   },
   menus: {
     all: 'All',
     about: 'About',
-    works: 'Portfolio',
+    works: 'Works',
     contact: 'Contact',
   },
   page_404: {

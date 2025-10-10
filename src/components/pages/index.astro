@@ -14,16 +14,19 @@ const imageInfo = await getCollection('imageInfo');
 const members = imageInfo.reduce((ans, item) => {
   return [
     ...ans,
-    ...Object.entries(item.data).map(([it, info]) => ({ name: `${item.id}/${it}`, width: info[0], height: info[1] }))
+    ...Object.entries(item.data).map(([it, info]) => {
+      const [width, height] = info as [number, number];
+      return { name: `${item.id}/${it}`, width, height };
+    })
   ];
-}, []).sort(() => Math.random() - 0.5);
+}, [] as { name: string; width: number; height: number }[]).sort(() => Math.random() - 0.5);
 const mates = {
   title: i18n('menus.all'),
 	description: i18n('mate.description'),
 	author: siteConfig.author,
 	email: siteConfig.email,
 	local: currentLocale,
-	ogImage: getRelativeLocaleUrl(currentLocale, '/og-image/site-image.png'),
+  ogImage: getRelativeLocaleUrl(currentLocale ?? 'en', '/og-image/site-image.png'),
 }
 ---
 <PageLayout {...mates}>
