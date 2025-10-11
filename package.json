@@ -1,8 +1,8 @@
 {
-  "name": "contracultural",
+  "name": "margen",
   "type": "module",
   "version": "0.0.1",
-  "description": "About contracultural is a Astro template for showcasing Design/Photography artists.",
+  "description": "About margen is a Astro template for showcasing Design/Photography artists.",
   "scripts": {
     "dev": "astro dev",
     "dev:debug": "node --inspect-brk node_modules/.bin/astro dev",

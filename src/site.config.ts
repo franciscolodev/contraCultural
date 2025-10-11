@@ -1,8 +1,8 @@
 export const siteConfig = {
-title: "contraCultural",
-author: "contraCultural",
+title: "margen",
+author: "margen",
 description: "Diseño para galería de arte y cultura",
-email: "XXXXX@X1337.dev",
+email: "franciscolodev@gmail.com",
 lang: "es",
   site: "https://franciscolodev.com", // 🌐 el link que usará el footer
 themes: { dark: "business", light: "silk" },

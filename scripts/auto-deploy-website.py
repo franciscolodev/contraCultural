@@ -18,7 +18,7 @@ def main():
         print("🧹 Eliminar el directorio...")
         shutil.rmtree(website_dir)
 
-    # 2. git clone docs 分支到 website 目录
+    # 2. git clone docs website 
     repo_url = "https://github.com/franciscolodev/contraCultural.git"
     print("📥 Clonando la rama blog en el directorio website...")
     run_cmd(f"git clone --depth 1 -b {branch_name} {repo_url} website")

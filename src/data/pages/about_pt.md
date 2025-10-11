@@ -3,8 +3,6 @@ name: "about"
 ---
 **Site Oficial do Autor**: https://franciscolodev.com/
 
-**Repositório do Projeto**: https://github.com/franciscolodev/contraCultural
-
 **Aviso Especial**: As imagens usadas neste tema foram retiradas de sites oficiais de outros designers/fotógrafos e são usadas apenas para fins de demonstração de recursos.
 
 **Recursos e Benefícios deste Tema Astro**:

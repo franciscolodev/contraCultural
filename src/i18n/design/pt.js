@@ -28,7 +28,7 @@ export default {
   },
   footer: {
     cr: 'All rights reserved.',
-    icp: '(Río Cuarto, Córdoba, Argentina) ',
+    icp: 'Río Cuarto, Córdoba, Argentina',
   },
   menus: {
     all: 'All',
